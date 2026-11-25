@@ -1,0 +1,48 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "RSS & Atom Feed to JSON API",
+    "version": "1.0.0",
+    "description": "Convert any RSS 2.0 or Atom XML feed URL into clean, normalized JSON items with ISO timestamps, authors, categories, and summaries."
+  },
+  "servers": [
+    {
+      "url": "https://micro-api-suite.onrender.com/apis/rss-to-json-feed"
+    }
+  ],
+  "paths": {
+    "/v1/parse": {
+      "get": {
+        "summary": "Parse an RSS or Atom feed URL into JSON",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "https://news.ycombinator.com/rss"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 30
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Parsed feed JSON"
+          },
+          "400": {
+            "description": "Invalid URL"
+          }
+        }
+      }
+    }
+  }
+}

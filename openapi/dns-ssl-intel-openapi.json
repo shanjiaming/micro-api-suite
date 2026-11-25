@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "DNS & SSL Certificate Inspector API",
+    "version": "1.0.0",
+    "description": "Inspect any domain's DNS records (A, AAAA, MX, NS, TXT), email security (SPF & DMARC), and live TLS/SSL certificate issuer, expiration, and protocol version."
+  },
+  "servers": [
+    {
+      "url": "https://micro-api-suite.onrender.com/apis/dns-ssl-intel"
+    }
+  ],
+  "paths": {
+    "/v1/inspect": {
+      "get": {
+        "summary": "Inspect DNS records, SPF/DMARC, and TLS certificate for a domain",
+        "parameters": [
+          {
+            "name": "domain",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "github.com"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Domain DNS and TLS report"
+          },
+          "400": {
+            "description": "Invalid domain"
+          }
+        }
+      }
+    }
+  }
+}

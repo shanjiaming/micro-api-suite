@@ -1,0 +1,14 @@
+{
+  "name": "micro-api-suite",
+  "version": "1.0.0",
+  "description": "Multi-product zero-dependency RapidAPI microservice suite",
+  "type": "module",
+  "main": "src/server.mjs",
+  "scripts": {
+    "start": "node src/server.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

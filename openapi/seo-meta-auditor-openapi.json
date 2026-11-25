@@ -1,0 +1,39 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "SEO & AEO Meta Auditor API",
+    "version": "1.0.0",
+    "description": "Audit any public webpage for technical SEO score, title/description length, canonical, headings, OpenGraph, JSON-LD structured data, image alt coverage, and link counts."
+  },
+  "servers": [
+    {
+      "url": "https://micro-api-suite.onrender.com/apis/seo-meta-auditor"
+    }
+  ],
+  "paths": {
+    "/v1/audit": {
+      "get": {
+        "summary": "Run SEO & OpenGraph audit on a URL",
+        "parameters": [
+          {
+            "name": "url",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "https://stripe.com"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SEO audit JSON"
+          },
+          "400": {
+            "description": "Invalid URL"
+          }
+        }
+      }
+    }
+  }
+}
